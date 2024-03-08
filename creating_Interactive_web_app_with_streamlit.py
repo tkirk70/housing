@@ -16,7 +16,7 @@ data.columns = data.columns.str.upper() # convert the columns to uppercase
 # write a text or comment
 st.write( '### 1. Overview of the Data ')
 # view the data in streamlit
-st.dataframe(data, use_container_width=True)
+st.dataframe(data)
 
 st.write( '### 2. Understanding the Data ')
 # creating radio button
@@ -26,11 +26,11 @@ selected = st.radio( "**What do you want to know about the data ?**", ["Descript
 st.write(selected)
 
 if selected == 'Description':
-    st.dataframe(data.describe(), use_container_width=True)   # shows the data basic descriptive
+    st.dataframe(data.describe())   # shows the data basic descriptive
 elif selected == 'Data Sample':
-    st.dataframe(data.sample(10), use_container_width=True)  #  select random row
+    st.dataframe(data.sample(10))  #  select random row
 elif selected == 'Data Head/Tail':
-    st.dataframe(data.head(), use_container_width=True)  # shows the head of the data 
+    st.dataframe(data.head())  # shows the head of the data 
 else:
     st.write('###### The shape of the data is :',data.shape)  # check the data shape
 
